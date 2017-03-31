@@ -1,4 +1,5 @@
 test_script:
 - dir .git\lfs\objects\logs\
+- git lfs logs last
 
 build: off
