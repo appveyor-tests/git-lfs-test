@@ -1,0 +1,4 @@
+test_script:
+- dir .git\lfs\objects\logs\
+
+build: off
