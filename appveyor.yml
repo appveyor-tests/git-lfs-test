@@ -1,5 +1,6 @@
 test_script:
-- dir .git\lfs\objects\logs\
+- cmd: dir .git\lfs\objects\logs\
+- sh: ls .git/lfs/objects/logs
 - git lfs logs last
 
 build: off
