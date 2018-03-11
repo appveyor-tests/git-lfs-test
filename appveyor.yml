@@ -1,5 +1,5 @@
 test_script:
-- cmd: dir .git\lfs\objects\logs\
+- cmd: dir node-7.8.0-x64.7z
 - sh: ls .git/lfs/objects/logs
 - git lfs logs last
 
