@@ -1,11 +1,18 @@
 environment:
   APPVEYOR_SSH_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUvrULRVnqephhFVqt2Gm+MRkLewIa7bfrrHTp1+Y6ulBlycVumHKsLMzeulCnxUP7+gVJ9cIQtbNBOt9oGEcSGBNGtmoDPsNOo6lA/9eVkQQR+WlgKYFK2LgtJY2FMpmkeD8BA06lz0arR6oQAac6Yjfn7HQq0XRkmJaFwrgc258JwSldbp9RNGDd7j6DzF1F3QsiLRFeHqZni6eNMnC3Xhmh0Jj4hDjYpeXWKuZjGPXAuVry0XTXPoLaUNfi0R9aDhtD8NszdzWKNwYt2iPKBVaSkMeDFkyLo3+CGLHKw//Uw8GIhtRQk4S6/Yfo7LS3leOJxJs7dryJiUS0IwT9 wasapl@appveyor.com
   APPVEYOR_SSH_BLOCK: true
+  LARGE_FILE: node-7.8.0-x64.7z
+  LARGE_FILE_MD5: 781ca1e775f0f9811bb552f9e08e8af0
  
 test_script:
 - cmd: dir node-7.8.0-x64.7z
-- sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
-- sh: ls .git/lfs/objects/logs
+- sh: ls .git/lfs/
 - git lfs logs last
+- sh: if [ -d .git/lfs ]; then echo "There is no .git/lfs folder!"; return 1; fi
+- sh: |
+    if [ "$(md5sum ${LARGE_FILE}|cut -d' ' -f1)" != "${LARGE_FILE_MD5}" ]; then
+      echo " MD5sum of ${LARGE_FILE} differs from ${LARGE_FILE_MD5}";
+      return 1;
+    fi
 
 build: off
