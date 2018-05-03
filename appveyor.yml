@@ -8,7 +8,7 @@ test_script:
 - cmd: dir node-7.8.0-x64.7z
 - sh: ls .git/lfs/
 - git lfs logs last
-- sh: if [ -d .git/lfs ]; then echo "There is no .git/lfs folder!"; return 1; fi
+- sh: if [ ! -d .git/lfs ]; then echo "There is no .git/lfs folder!"; return 1; fi
 - sh: |
     if [ "$(md5sum ${LARGE_FILE}|cut -d' ' -f1)" != "${LARGE_FILE_MD5}" ]; then
       echo " MD5sum of ${LARGE_FILE} differs from ${LARGE_FILE_MD5}";
