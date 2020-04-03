@@ -16,5 +16,6 @@ test_script:
       echo " MD5sum of ${LARGE_FILE} differs from ${LARGE_FILE_MD5}";
       return 1;
     fi
+- sh: cat ~/.ssh/known_hosts
 
 build: off
