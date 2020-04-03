@@ -7,7 +7,7 @@ environment:
 test_script:
 - cmd: dir node-7.8.0-x64.7z
 - git --version
-- sh: git subtree --help
+- sh: git subtree --squash
 - sh: ls .git/lfs/
 - git lfs logs last
 - sh: if [ ! -d .git/lfs ]; then echo "There is no .git/lfs folder!"; return 1; fi
