@@ -6,8 +6,9 @@ environment:
   GIT_CLONE_PROTECTION_ACTIVE: false
 
 init: 
-  - ps: Write-host "init section"
-  - ps: [Environment]::SetEnvironmentVariable('GIT_CLONE_PROTECTION_ACTIVE', 'false', 'Machine')
+- ps: Write-host "init section"
+- ps: >-
+    [Environment]::SetEnvironmentVariable('GIT_CLONE_PROTECTION_ACTIVE', 'false', 'Machine')
 
 test_script:
 - cmd: dir node-7.8.0-x64.7z
