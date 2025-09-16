@@ -9,6 +9,10 @@ environment:
   LARGE_FILE_MD5: 781ca1e775f0f9811bb552f9e08e8af0
   GIT_CLONE_PROTECTION_ACTIVE: false
 
+
+
+clone_script: 
+- sh: git clone --branch=main https://github.com/appveyor-tests/git-lfs-test /home/appveyor/projects/git-lfs-test
 #init: 
 
 #- ps: >-
