@@ -11,7 +11,7 @@ environment:
  #   [Environment]::SetEnvironmentVariable('GIT_CLONE_PROTECTION_ACTIVE', 'false', 'Machine')
 
 clone_script: 
-- sh: git clone --branch=master https://github.com/appveyor-tests/git-lfs-test.git /home/appveyor/projects/git-lfs-test
+- sh: git clone --branch=master hhttps://github.com/appveyor-tests/qt-linux /home/appveyor/projects/git-lfs-test
 test_script:
 - cmd: dir node-7.8.0-x64.7z
 - git --version
