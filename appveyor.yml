@@ -1,4 +1,4 @@
-image: Ubuntu2204
+image: Ubuntu2004
 
 
 
@@ -7,7 +7,7 @@ environment:
   APPVEYOR_SSH_BLOCK: true
   LARGE_FILE: node-7.8.0-x64.7z
   LARGE_FILE_MD5: 781ca1e775f0f9811bb552f9e08e8af0
-  #GIT_CLONE_PROTECTION_ACTIVE: false
+  GIT_CLONE_PROTECTION_ACTIVE: false
 
 #init: 
 
